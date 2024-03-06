@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class GenerateQrCode extends StatefulWidget {
   const GenerateQrCode({super.key});
@@ -21,12 +22,34 @@ class _ScanQrCodeState extends State<GenerateQrCode> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              if (urlController.text.isNotEmpty)
+                QrImageView(
+                  data: urlController.text,
+                  size: 200,
+                ),
               const SizedBox(
                 height: 10,
               ),
               Container(
                 padding: const EdgeInsets.only(left: 10, right: 10),
-                child: TextFormField(),
+                child: TextField(
+                  controller: urlController,
+                  decoration: InputDecoration(
+                      hintText: ' Enter your Data',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      labelText: 'Enter your Data'),
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {});
+                },
+                child: const Text('Generate QR Code'),
               )
             ],
           ),
