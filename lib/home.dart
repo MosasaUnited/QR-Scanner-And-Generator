@@ -14,6 +14,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: ImageIcon(
+            AssetImage('assets/icon/qr-code.png'),
+          ),
+        ),
         title: const Text('QR Scanner And Generator'),
       ),
       body: Center(
